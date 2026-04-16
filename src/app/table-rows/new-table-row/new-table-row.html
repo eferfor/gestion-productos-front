@@ -13,7 +13,11 @@
   [value]="draft().precio.toString()"
   [disabled]="false" [focusClass]="true" [newClass]="'new'"
   (valueChange)="draft.update(d => ({...d, precio: parsePrecio($event)}))"
-  ></app-table-entry></td>
+  ></app-table-entry>
+  @if(showErrorPrecio()){
+    <p class="errorPrecio">⇩ El precio debe ser numérico (decimales con ".")</p>
+  }
+</td>
 <td><app-table-entry
   [value]="draft().categoria"
   [disabled]="false" [focusClass]="true" [newClass]="'new'"
@@ -33,7 +37,11 @@
   [value]="draft().activo.toString()"
   [disabled]="false" [focusClass]="true" [newClass]="'new'"
   (valueChange)="draft.update(d => ({...d, activo: parseActivo($event)}))"
-  ></app-table-entry></td>
+  ></app-table-entry>
+  @if(showErrorActivo()){
+    <p class="errorActivo">⇩ Sólo "true" o "false"</p>
+  }
+</td>
 <td></td>
 <td>{{ usuario() }}</td>
 
