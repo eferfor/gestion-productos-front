@@ -1,0 +1,91 @@
+.main{
+  padding: 4rem;
+}
+
+.content{
+  margin: auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* =========== FILTROS ============= */
+.busqueda{
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+}
+
+.usuario, .filtro{
+  display: flex;
+  gap: .5rem;
+  align-items: baseline;
+}
+
+.usuario{
+  margin-right: auto;
+}
+
+.usuario input, .filtro input{
+  padding: .25rem .5rem;
+  border-radius: 10rem;
+  border: none;
+}
+
+.usuario input:focus, .filtro input:focus{
+  outline: none;
+  box-shadow: rgb(240, 163, 76) 0 0 0 2px;
+}
+
+
+/* =========== TABLA ============= */
+table{
+  border-collapse: collapse;
+  border-radius: .5rem;
+  overflow: hidden;
+  box-shadow: rgb(210, 212, 212) 0 0 0 1px;
+}
+
+th{
+  padding: .5rem 1rem;
+  text-align: left;
+}
+
+th{
+  background-color: #1d1818;
+}
+
+td.vacio{
+  text-align: center;
+  padding: 1rem;
+}
+
+
+/* =========== BOTÓN AÑADIR ============= */
+.newProdBtn{
+  align-self: center;
+  padding: .25rem .5rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(240, 240, 240);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newProdBtn:hover{
+  background-color: rgb(240, 163, 76);
+  color: rgb(240, 240, 240);
+}
+
+.newProdBtn:active{
+  background-color: rgb(240, 240, 240);
+  color: #1d1818;
+}
+
+.newProdBtn > span{
+  font-size: 1rem;
+}

@@ -1,0 +1,20 @@
+input{
+  background-color: unset;
+  color: rgb(240, 240, 240);
+  border: none;
+  field-sizing: content;
+}
+
+.new{
+  border-bottom: 2px solid rgb(240, 163, 76);
+  min-width: 4rem;
+}
+
+input:focus{
+  color: rgb(240, 163, 76);
+}
+
+.focus{
+  cursor: text;
+  color: rgb(240, 163, 76);
+}

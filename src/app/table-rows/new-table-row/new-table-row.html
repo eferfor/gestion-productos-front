@@ -1,0 +1,47 @@
+<td>_</td>
+<td><app-table-entry
+  [value]="draft().nombre"
+  [disabled]="!editing()" [focusClass]="editing()" [newClass]="'new'"
+  (valueChange)="draft.update(d => ({...d, nombre: $event}))"
+  ></app-table-entry></td>
+<td><app-table-entry
+  [value]="draft().descripcion"
+  [disabled]="false" [focusClass]="true" [newClass]="'new'"
+  (valueChange)="draft.update(d => ({...d, descripcion: $event}))"
+  ></app-table-entry></td>
+<td><app-table-entry
+  [value]="draft().precio.toString()"
+  [disabled]="false" [focusClass]="true" [newClass]="'new'"
+  (valueChange)="draft.update(d => ({...d, precio: parsePrecio($event)}))"
+  ></app-table-entry></td>
+<td><app-table-entry
+  [value]="draft().categoria"
+  [disabled]="false" [focusClass]="true" [newClass]="'new'"
+  (valueChange)="draft.update(d => ({...d, categoria: $event}))"
+  ></app-table-entry></td>
+<td><app-table-entry
+  [value]="draft().marca"
+  [disabled]="false" [focusClass]="true" [newClass]="'new'"
+  (valueChange)="draft.update(d => ({...d, marca: $event}))"
+  ></app-table-entry></td>
+<td><app-table-entry
+  [value]="draft().referencia"
+  [disabled]="false" [focusClass]="true" [newClass]="'new'"
+  (valueChange)="draft.update(d => ({...d, referencia: $event}))"
+  ></app-table-entry></td>
+<td><app-table-entry
+  [value]="draft().activo.toString()"
+  [disabled]="false" [focusClass]="true" [newClass]="'new'"
+  (valueChange)="draft.update(d => ({...d, activo: parseActivo($event)}))"
+  ></app-table-entry></td>
+<td></td>
+<td>{{ usuario() }}</td>
+
+<td>
+  <button class="cancelar" (click)="cancelNewRow($event)">
+    <span class="white material-symbols-outlined">edit_off</span>
+  </button>
+  <button class="guardar" (click)="saveProduct()">
+    <span class="white material-symbols-outlined">check</span>
+  </button>
+</td>

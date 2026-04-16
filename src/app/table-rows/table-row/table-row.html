@@ -1,0 +1,61 @@
+<td>{{ product().id }}</td>
+<td><app-table-entry
+  [value]="editing() ? draft().nombre : product().nombre"
+  [disabled]="!editing()" [focusClass]="editing()"
+  (valueChange)="draft.update(d => ({...d, nombre: $event}))"
+  ></app-table-entry></td>
+<td><app-table-entry
+  [value]="editing() ? draft().descripcion : product().descripcion"
+  [disabled]="!editing()" [focusClass]="editing()"
+  (valueChange)="draft.update(d => ({...d, descripcion: $event}))"
+  ></app-table-entry></td>
+<td><app-table-entry
+  [value]="editing() ? draft().precio.toString() : product().precio.toString()"
+  [disabled]="!editing()" [focusClass]="editing()"
+  (valueChange)="draft.update(d => ({...d, precio: parsePrecio($event)}))"
+  ></app-table-entry>
+  @if(showErrorPrecio()){
+    <p class="errorPrecio">⇩ El precio debe ser numérico (decimales con ".")</p>
+  }
+</td>
+<td><app-table-entry
+  [value]="editing() ? draft().categoria : product().categoria"
+  [disabled]="!editing()" [focusClass]="editing()"
+  (valueChange)="draft.update(d => ({...d, categoria: $event}))"
+  ></app-table-entry></td>
+<td><app-table-entry
+  [value]="editing() ? draft().marca : product().marca"
+  [disabled]="!editing()" [focusClass]="editing()"
+  (valueChange)="draft.update(d => ({...d, marca: $event}))"
+  ></app-table-entry></td>
+<td><app-table-entry
+  [value]="editing() ? draft().referencia : product().referencia"
+  [disabled]="!editing()" [focusClass]="editing()"
+  (valueChange)="draft.update(d => ({...d, referencia: $event}))"
+  ></app-table-entry></td>
+<td><app-table-entry
+  [value]="editing() ? draft().activo.toString() : product().activo.toString()"
+  [disabled]="!editing()" [focusClass]="editing()"
+  (valueChange)="draft.update(d => ({...d, activo: parseActivo($event)}))"
+  ></app-table-entry>
+  @if(showErrorActivo()){
+    <p class="errorActivo">⇩ Sólo "true" o "false"</p>
+  }
+</td>
+<td>{{ product().fechaAlta | date:'yyyy-MM-dd' }}</td>
+<td>{{ product().audUser }}</td>
+
+<td>
+  <button [ngClass]="hideBtnGrp1() ? 'hidden' : 'editar'" (click)="editProduct()">
+    <span class="orange material-symbols-outlined">edit_square</span>
+  </button>
+  <button [ngClass]="hideBtnGrp1() ? 'hidden' : 'eliminar'" (click)="deleteProduct()">
+    <span class="orange material-symbols-outlined">delete</span>
+  </button>
+  <button [ngClass]="hideBtnGrp2() ? 'hidden' : 'cancelar'" (click)="editProduct()">
+    <span class="white material-symbols-outlined">edit_off</span>
+  </button>
+  <button [ngClass]="hideBtnGrp2() ? 'hidden' : 'guardar'" (click)="saveProduct()">
+    <span class="white material-symbols-outlined">check</span>
+  </button>
+</td>
