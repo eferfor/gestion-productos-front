@@ -5,14 +5,15 @@ import { Product } from './models/product';
 import { AppService } from './app.service';
 import { JsonPipe } from '@angular/common';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
-import { combineLatest, debounceTime, distinctUntilChanged, map, switchMap, take } from 'rxjs';
+import { combineLatest, debounceTime, distinctUntilChanged, map, merge, Subject, switchMap, take, tap, withLatestFrom } from 'rxjs';
 import { NewTableRow } from './table-rows/new-table-row/new-table-row';
 import { ProductUi } from './models/ProductUi';
+import { FileUpload } from "./file-upload/file-upload";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TableRow, NewTableRow, JsonPipe],
+  imports: [RouterOutlet, TableRow, NewTableRow, JsonPipe, FileUpload],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -26,6 +27,8 @@ export class App {
   usuario = signal('Usuario1');
 
   sinProductosMsg = signal('No hay productos para mostrar');
+
+  private refresh$ = new Subject<void>();
 
   changeUsuario(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -47,27 +50,38 @@ export class App {
     const filtroNombre$ = toObservable(this.filtroNombre);
     const filtroCategoria$ = toObservable(this.filtroCategoria);
 
-    // Comprueba los cambios en los filtros
-    combineLatest([filtroNombre$, filtroCategoria$]).pipe(
+    // Crea un array con los filtros y recoge los cambios
+    const filtros$ = combineLatest([filtroNombre$, filtroCategoria$]).pipe(
       map(([nombre, categoria]) => ({
-        nombre: nombre.trim(),
-        categoria: categoria.trim()
-    })),
-    debounceTime(300), // no actualiza cambios en menos de 300ms
-    distinctUntilChanged((a, b) => a.nombre === b.nombre && a.categoria === b.categoria), // evita volver a llamar si el filtro no tiene cambios
+        nombre: (nombre ?? '').trim(),
+        categoria: (categoria ?? '').trim()
+      })),
+      debounceTime(300), // no actualiza cambios en menos de 300ms
+      distinctUntilChanged((a, b) => a.nombre === b.nombre && a.categoria === b.categoria)
+    ); // evita volver a llamar si el filtro no tiene cambios
+
+    const reload$ = merge(
+      filtros$,
+      this.refresh$.pipe(
+        withLatestFrom(filtros$),
+        map(([, f]) => f)
+      )
+    )
+
     // switchMap lanza la petición, pero cancela si llega un filtro nuevo
-    switchMap(f => this.appService.getProducts(f.nombre, f.categoria)),
-    takeUntilDestroyed()).subscribe({
-      next: (data) => {
-        this.products.set(data)
-        this.sinProductosMsg.set("No hay productos para mostrar");
-      },
-      error: (e) => {
-        console.log(e)
-        this.sinProductosMsg.set("Error al conectar al servidor");
-      }
-    });
-  }
+    reload$.pipe(
+      switchMap(f => this.appService.getProducts(f.nombre, f.categoria)),
+      takeUntilDestroyed()).subscribe({
+        next: (data) => {
+          this.products.set(data)
+          this.sinProductosMsg.set("No hay productos para mostrar");
+        },
+        error: (e) => {
+          console.log(e)
+          this.sinProductosMsg.set("Error al conectar al servidor");
+        }
+      });
+    }
 
   newRow(){
     console.log("añadir fila");
@@ -143,6 +157,11 @@ export class App {
       },
       error: (e) => console.log(e)
     });
+  }
+
+  refreshProducts(){
+    this.refresh$.next();
+    console.log("refrescado");
   }
 
   /*productsFixed = signal([

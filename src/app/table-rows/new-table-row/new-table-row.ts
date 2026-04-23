@@ -7,6 +7,7 @@ import { ProductRowBase } from '../product-row-base';
   imports: [TableEntry],
   templateUrl: './new-table-row.html',
   styleUrl: '../table-row/table-row.css',
+  standalone: true,
 })
 export class NewTableRow extends ProductRowBase {
   editing = signal(true);

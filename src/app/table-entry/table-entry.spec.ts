@@ -12,11 +12,17 @@ describe('TableEntry', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(TableEntry);
-    component = fixture.componentInstance;
+    fixture.componentRef.setInput('disabled', false);
+    fixture.componentRef.setInput('focusClass', false);
+    fixture.componentRef.setInput('newClass', '');
+    fixture.componentRef.setInput('value', '');
+    fixture.detectChanges();
+
     await fixture.whenStable();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const fixture = TestBed.createComponent(TableEntry);
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });

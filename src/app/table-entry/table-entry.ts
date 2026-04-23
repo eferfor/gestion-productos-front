@@ -6,6 +6,7 @@ import { NgClass } from '@angular/common';
   imports: [NgClass],
   templateUrl: './table-entry.html',
   styleUrl: './table-entry.css',
+  standalone: true
 })
 export class TableEntry {
   disabled = input.required<boolean>();

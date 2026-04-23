@@ -1,0 +1,25 @@
+.file-upload_grp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-input{
+  display: none;
+}
+
+.file-upload{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .5rem;
+}
+
+.file-upload button span{
+  font-size: 1rem;
+}
+
+.error{
+  color: rgb(226, 81, 81);
+}

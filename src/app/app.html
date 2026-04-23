@@ -47,7 +47,10 @@
         </tbody>
       </table>
     </div>
-    <button class="newProdBtn" (click)="newRow()"><span class="orange material-symbols-outlined">add</span> Añadir producto</button>
+    <div class="footer_btns">
+      <button class="newProdBtn" (click)="newRow()"><span class="orange material-symbols-outlined">add</span> Añadir producto</button>
+      <app-file-upload (uploaded)="refreshProducts()"></app-file-upload>
+    </div>
   </div>
 
   <!-- DEBUG: -->

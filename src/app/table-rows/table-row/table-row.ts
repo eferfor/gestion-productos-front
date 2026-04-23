@@ -8,6 +8,7 @@ import { ProductRowBase } from '../product-row-base';
   imports: [TableEntry, NgClass, DatePipe],
   templateUrl: './table-row.html',
   styleUrl: './table-row.css',
+  standalone: true,
 })
 export class TableRow extends ProductRowBase {
   editing = signal(false);

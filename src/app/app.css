@@ -62,8 +62,16 @@ td.vacio{
 }
 
 
+/* =========== FOOTER ============= */
+.footer_btns{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 /* =========== BOTÓN AÑADIR ============= */
-.newProdBtn{
+.newProdBtn, .upload-btn{
   align-self: center;
   padding: .25rem .5rem;
   border-radius: 2rem;
@@ -76,12 +84,12 @@ td.vacio{
   align-items: center;
 }
 
-.newProdBtn:hover{
+.newProdBtn:hover, .upload-btn:hover{
   background-color: rgb(240, 163, 76);
   color: rgb(240, 240, 240);
 }
 
-.newProdBtn:active{
+.newProdBtn:active, .upload-btn:active{
   background-color: rgb(240, 240, 240);
   color: #1d1818;
 }
@@ -89,3 +97,4 @@ td.vacio{
 .newProdBtn > span{
   font-size: 1rem;
 }
+

@@ -1,0 +1,18 @@
+<div class="file-upload_grp">
+  <label for="file-input">Subir un CSV con productos:</label>
+  <input
+    #fileInput
+    id="file-input" class="file-input"
+    type="file" accept=".csv, text/csv"
+    (change)="onFileSelected($event)"/>
+  <div class="file-upload">
+    <span>{{ fileName }}</span>
+    <button type="button" class="upload-btn" (click)="openFilePicker()"><span class="orange material-symbols-outlined">attach_file</span></button>
+  </div>
+  <button type="button" class="upload-btn" (click)="upload()" [disabled]="uploading">
+    {{ uploading ? 'Subiendo...' : 'Subir' }}
+  </button>
+  @if (errorMsg) {
+    <p class="error">{{ errorMsg }}</p>
+  }
+</div>
