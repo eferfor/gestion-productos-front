@@ -56,6 +56,15 @@ export class AppService {
     return this.http.post(`${this.apiUrl}/uploadFile`, formData);
   }
 
+  downloadExcel(nombre?: string, categoria?: string){
+    const params: any = {};
+    if(nombre) params.nombre = nombre;
+    if(categoria) params.categoria = categoria;
+
+    // blob para que no parsee JSON y observe para obtener toda la respuesta y no sólo el body
+    return this.http.get(this.apiUrl + '/downloadExcel', { params, responseType: 'blob' as const, observe: 'response' as const });
+  }
+
   private toProduct(p: ProductApi): Product {
     return {
       id: p.id,
