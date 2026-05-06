@@ -10,6 +10,13 @@
   gap: 1rem;
 }
 
+/* =========== TITULO ============= */
+.titulo{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 /* =========== FILTROS ============= */
 .busqueda{
   display: flex;

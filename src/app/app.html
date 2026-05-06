@@ -1,6 +1,9 @@
 <main class="main">
   <div class="content">
-    <h1>Gestor de Productos</h1>
+    <div class="titulo">
+      <h1>Gestor de Productos</h1>
+      <app-file-download [products]="products()" />
+    </div>
     <div class="busqueda">
       <div class="usuario">
         <label for="usuario">Usuario:</label>

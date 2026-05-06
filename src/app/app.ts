@@ -9,11 +9,12 @@ import { combineLatest, debounceTime, distinctUntilChanged, map, merge, Subject,
 import { NewTableRow } from './table-rows/new-table-row/new-table-row';
 import { ProductUi } from './models/ProductUi';
 import { FileUpload } from "./file-upload/file-upload";
+import { FileDownload } from "./file-download/file-download";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TableRow, NewTableRow, JsonPipe, FileUpload],
+  imports: [RouterOutlet, TableRow, NewTableRow, JsonPipe, FileUpload, FileDownload],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

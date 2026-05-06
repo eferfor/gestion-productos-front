@@ -1,0 +1,33 @@
+.downloadBtns{
+  display: flex;
+  gap: .5rem;
+}
+
+button{
+  padding: .25rem .5rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(240, 240, 240);
+
+  font-size: .8rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+}
+
+button:hover{
+  background-color: rgb(240, 163, 76);
+  color: rgb(240, 240, 240);
+}
+
+button:active{
+  background-color: rgb(240, 240, 240);
+  color: #1d1818;
+}
+
+button span{
+  font-size: 1rem;
+}
