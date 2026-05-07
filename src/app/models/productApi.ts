@@ -9,4 +9,5 @@ export interface ProductApi {
   activo: boolean;
   fecha_alta: string;
   aud_user: string;
+  imagen: string;
 }

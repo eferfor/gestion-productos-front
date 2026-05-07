@@ -2,7 +2,7 @@ import { Directive, input, output, signal } from '@angular/core';
 import { ProductUi } from '../models/ProductUi';
 
 type DraftFields = Pick<ProductUi,
- 'nombre' | 'descripcion' | 'precio' | 'categoria' | 'marca' | 'referencia' | 'activo' | 'audUser'
+ 'nombre' | 'descripcion' | 'precio' | 'categoria' | 'marca' | 'referencia' | 'activo' | 'audUser' | 'imagen'
  >;
 
 @Directive()
@@ -27,7 +27,8 @@ export abstract class ProductRowBase {
     marca: '',
     referencia: '',
     activo: true,
-    audUser: ''
+    audUser: '',
+    imagen: ''
   });
 
   showErrorPrecio = signal<boolean>(false);

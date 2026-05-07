@@ -77,6 +77,7 @@ export class AppService {
       activo: p.activo,
       fechaAlta: p.fecha_alta,
       audUser: p.aud_user,
+      imagen: p.imagen
     };
   }
 
@@ -92,6 +93,7 @@ export class AppService {
       activo: p.activo,
       fecha_alta: p.fechaAlta instanceof Date ? p.fechaAlta.toISOString() : p.fechaAlta,
       aud_user: p.audUser,
+      imagen: p.imagen
     };
   }
 

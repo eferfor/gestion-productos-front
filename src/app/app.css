@@ -1,5 +1,5 @@
 .main{
-  padding: 4rem;
+  padding: 4rem 1rem;
 }
 
 .content{
@@ -52,6 +52,7 @@ table{
   border-radius: .5rem;
   overflow: hidden;
   box-shadow: rgb(210, 212, 212) 0 0 0 1px;
+  width: fit-content;
 }
 
 th{

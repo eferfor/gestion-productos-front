@@ -9,4 +9,5 @@ export interface Product {
   activo: boolean;
   fechaAlta: string | Date;
   audUser: string;
+  imagen: string;
 }

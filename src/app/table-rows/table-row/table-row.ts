@@ -28,7 +28,8 @@ export class TableRow extends ProductRowBase {
         marca: p.marca,
         referencia: p.referencia,
         activo: p.activo,
-        audUser: p.audUser
+        audUser: p.audUser,
+        imagen: p.imagen
       });
       this.editing.set(true);
       this.hideBtnGrp1.set(true);

@@ -1,8 +1,16 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 input{
   background-color: unset;
   color: rgb(240, 240, 240);
   border: none;
   field-sizing: content;
+
+  width: 100%;
+  max-width: 100%;
 }
 
 .new{

@@ -98,7 +98,8 @@ export class App {
       referencia: '',
       activo: true,
       audUser: '',
-      fechaAlta: ''
+      fechaAlta: '',
+      imagen: ''
     };
     this.products.update(list => [...list, newRow]);
   }
@@ -176,7 +177,8 @@ export class App {
       referencia: "SRPM07",
       activo: true,
       fecha_alta: "2026-04-14",
-      audUser: "1"
+      audUser: "1",
+      imagen: "https://www.seikowatches.com/es-es/products/srpm07j1"
     },
     {
       id: 2,
@@ -188,7 +190,8 @@ export class App {
       referencia: "PTT01",
       activo: true,
       fecha_alta: "2026-04-14",
-      audUser: "1"
+      audUser: "1",
+      imagen: "https://www.elcorteingles.es/supermercado/A37032594-patata-1-kg/"
     },
     {
       id: 3,
@@ -200,7 +203,8 @@ export class App {
       referencia: "MS001",
       activo: true,
       fecha_alta: "2026-04-14",
-      audUser: "1"
+      audUser: "1",
+      imagen: "https://www.amazon.es/Tutto-Carr%C3%A0-Raffaella/dp/B00005QF5P"
     },
     {
       id: 4,
@@ -212,7 +216,8 @@ export class App {
       referencia: "LCH01",
       activo: true,
       fecha_alta: "2026-04-14",
-      audUser: "1"
+      audUser: "1",
+      imagen: "https://www.elcorteingles.es/supermercado/A37032594-patata-1-kg/"
     },
   ])
   */
