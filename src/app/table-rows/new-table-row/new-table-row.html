@@ -1,5 +1,11 @@
 <td>_</td>
 <td><app-table-entry
+  [value]="draft().imagen"
+  [disabled]="!editing()" [focusClass]="editing()" [newClass]="'new'"
+  (valueChange)="draft.update(d => ({...d, imagen: $event}))"
+  [placeholder]="'URL imagen'"
+  ></app-table-entry></td>
+<td><app-table-entry
   [value]="draft().nombre"
   [disabled]="!editing()" [focusClass]="editing()" [newClass]="'new'"
   (valueChange)="draft.update(d => ({...d, nombre: $event}))"

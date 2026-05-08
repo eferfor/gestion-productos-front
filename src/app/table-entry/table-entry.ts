@@ -15,5 +15,6 @@ export class TableEntry {
 
   value = input<string>('');
   valueChange = output<string>();
+  placeholder = input<string>('');
 
 }

@@ -6,25 +6,26 @@
       [value]="draft().imagen"
       [disabled]="!editing()" [focusClass]="editing()"
       (valueChange)="draft.update(d => ({...d, imagen: $event}))"
+      [placeholder]="'URL imagen'"
       ></app-table-entry>
   </td>
   <td>
     <app-table-entry
-      [value]="editing() ? draft().nombre : product().nombre"
+      [value]="draft().nombre"
       [disabled]="!editing()" [focusClass]="editing()"
       (valueChange)="draft.update(d => ({...d, nombre: $event}))"
       ></app-table-entry>
     </td>
   <td>
     <app-table-entry
-      [value]="editing() ? draft().descripcion : product().descripcion"
+      [value]="draft().descripcion"
       [disabled]="!editing()" [focusClass]="editing()"
       (valueChange)="draft.update(d => ({...d, descripcion: $event}))"
       ></app-table-entry>
   </td>
   <td>
     <app-table-entry
-      [value]="editing() ? draft().precio.toString() : product().precio.toString()"
+      [value]="draft().precio.toString()"
       [disabled]="!editing()" [focusClass]="editing()"
       (valueChange)="draft.update(d => ({...d, precio: parsePrecio($event)}))"
       ></app-table-entry>
@@ -34,28 +35,28 @@
   </td>
   <td>
     <app-table-entry
-      [value]="editing() ? draft().categoria : product().categoria"
+      [value]="draft().categoria"
       [disabled]="!editing()" [focusClass]="editing()"
       (valueChange)="draft.update(d => ({...d, categoria: $event}))"
       ></app-table-entry>
   </td>
   <td>
     <app-table-entry
-      [value]="editing() ? draft().marca : product().marca"
+      [value]="draft().marca"
       [disabled]="!editing()" [focusClass]="editing()"
       (valueChange)="draft.update(d => ({...d, marca: $event}))"
       ></app-table-entry>
   </td>
   <td>
     <app-table-entry
-      [value]="editing() ? draft().referencia : product().referencia"
+      [value]="draft().referencia"
       [disabled]="!editing()" [focusClass]="editing()"
       (valueChange)="draft.update(d => ({...d, referencia: $event}))"
       ></app-table-entry>
   </td>
   <td>
     <app-table-entry
-      [value]="editing() ? draft().activo.toString() : product().activo.toString()"
+      [value]="draft().activo.toString()"
       [disabled]="!editing()" [focusClass]="editing()"
       (valueChange)="draft.update(d => ({...d, activo: parseActivo($event)}))"
       ></app-table-entry>
@@ -73,11 +74,11 @@
   </td>
   <td>{{ product().nombre }}</td>
   <td>{{ product().descripcion }}</td>
-  <td>{{ product().precio }}</td>
+  <td>{{ product().precio.toString() }}</td>
   <td>{{ product().categoria }}</td>
   <td>{{ product().marca }}</td>
   <td>{{ product().referencia }}</td>
-  <td>{{ product().activo }}</td>
+  <td>{{ product().activo.toString() }}</td>
 }
 
 <td>{{ product().fechaAlta | date:'yyyy-MM-dd' }}</td>
